@@ -1,5 +1,4 @@
 // Run on edge
-// https://blog.stackademic.com/authentication-and-authorization-on-the-edge-with-auth-js-nextauth-5-and-mongodb-5903d7e95f99
 import NextAuth from "next-auth";
 import authConfig from "@/auth.config";
 
@@ -20,9 +19,7 @@ export default auth((req) => {
         return Response.redirect(req.nextUrl.origin
             + `/auth/login?callbackUrl=${encodedCallbackUrl}`)
     }
-    else {
-        console.log('autenticado');
-    }
+    
 })
 
 
@@ -30,6 +27,7 @@ export const config = {
     matcher: [
         "/dashboard(.*)",
         "/admin(.*)",
+        "/proveedores(.*)",
         "/articulos",
         "/articulos/new",
         "/articulos/edit",

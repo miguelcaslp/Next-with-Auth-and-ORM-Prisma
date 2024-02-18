@@ -35,7 +35,7 @@ export async function register(formData) {
 
 
 
-// // LOGIN credentials
+// LOGIN credentials
 export async function login(formData) {
     const email = formData.get('email')
     const password = formData.get('password')
@@ -64,30 +64,6 @@ export async function login(formData) {
 
 }
 
-
-// LOGIN credentials
-// export async function login(formData) {
-//     const email = formData.get('email')
-//     const password = formData.get('password')
-
-//     console.log('RES ');
-//     try {
-//         await signIn('credentials',
-//             {
-//                 email, password,
-//                 redirectTo: '/dashboard'
-//             })
-//         return { success: "Inicio de sesión correcto" }
-//     }
-//     catch (error) {
-//         console.log(error);
-//         redirect('/auth/login?error=' + error.type)
-//     }
-
-// }
-
-
-
 // LOGIN google
 export async function loginGoogle() {
     try {
@@ -101,7 +77,7 @@ export async function loginGoogle() {
 // LOGIN github
 export async function loginGithub() {
     try {
-        await signIn('github',  { redirectTo: globalThis.callbackUrl })      
+        await signIn('github', { redirectTo: globalThis.callbackUrl })
     } catch (error) {
         console.log(error);
         throw error

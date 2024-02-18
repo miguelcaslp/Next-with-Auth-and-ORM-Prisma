@@ -17,6 +17,8 @@ errors.set('Default', "No se puede iniciar sesión.");
 
 function page({ searchParams }) {
   const { error, callbackUrl } = searchParams
+  // Usamos globalThis para almacenar como variable global
+  // La usaremos en los actions de login
   globalThis.callbackUrl = decodeURIComponent(callbackUrl)
 
   return (

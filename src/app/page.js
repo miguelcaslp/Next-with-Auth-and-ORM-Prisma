@@ -13,6 +13,11 @@ export default async function Home() {
         <li><Link href="/articulos/new">Nuevo artículo</Link></li>
         <li><Link href="/articulos/edit">Editar artículo</Link></li>
         <li><Link href="/articulos/delete">Eliminar artículo</Link></li>
+        <hr></hr>
+        <li><Link href="/proveedores">Listado de proveedores</Link></li>
+        <li><Link href="/proveedores/new">Nuevo proveedor</Link></li>
+        <li><Link href="/proveedores/edit">Editar proveedor</Link></li>
+        <li><Link href="/proveedores/delete">Eliminar proveedor</Link></li>
       </ul>
 
     </main>
