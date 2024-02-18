@@ -91,7 +91,7 @@ export async function login(formData) {
 // LOGIN google
 export async function loginGoogle() {
     try {
-        await signIn('google', { redirectTo: '/dashboard' })
+        await signIn('google', { redirectTo: globalThis.callbackUrl })
     } catch (error) {
         console.log(error);
         throw error
@@ -101,7 +101,7 @@ export async function loginGoogle() {
 // LOGIN github
 export async function loginGithub() {
     try {
-        await signIn('github',  { redirectTo: '/dashboard' })      
+        await signIn('github',  { redirectTo: globalThis.callbackUrl })      
     } catch (error) {
         console.log(error);
         throw error
