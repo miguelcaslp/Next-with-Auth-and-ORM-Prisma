@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>ARTÍCULOS NEW</h1>
+    <h1>NUEVO ARTÍCULO</h1>
   )
 }
 

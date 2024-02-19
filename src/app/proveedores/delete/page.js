@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>PROVEEDORES DELETE</h1>
+    <h1>ELIMINAR PROVEEDOR</h1>
   )
 }
 

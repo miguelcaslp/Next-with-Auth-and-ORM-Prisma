@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>PROVEEDORES</h1>
+    <h1>LISTADO DE PROVEEDORES</h1>
   )
 }
 

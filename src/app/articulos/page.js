@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>ARTÍCULOS</h1>
+    <h1>LISTADO DE ARTÍCULOS</h1>
   )
 }
 

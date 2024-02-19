@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>ARTÍCULOS DELETE</h1>
+    <h1>ELIMINAR ARTÍCULO</h1>
   )
 }
 

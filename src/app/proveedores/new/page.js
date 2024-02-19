@@ -2,7 +2,7 @@
 
 function page() {
   return (
-    <h1>PROVEEDORES NEW</h1>
+    <h1>NUEVO PROVEEDOR</h1>
   )
 }
 
