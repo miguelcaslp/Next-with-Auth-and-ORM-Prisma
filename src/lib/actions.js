@@ -54,7 +54,7 @@ export async function login(formData) {
         await signIn('credentials',
             {
                 email, password,
-                redirectTo: globalThis.callbackUrl
+                redirectTo: globalThis.callbackUrl ?? '/dashboard'
                 // redirectTo: user.role == 'ADMIN' ? '/admin' : '/dashboard'
             })
         return { success: "Inicio de sesión correcto" }
@@ -67,7 +67,7 @@ export async function login(formData) {
 // LOGIN google
 export async function loginGoogle() {
     try {
-        await signIn('google', { redirectTo: globalThis.callbackUrl })
+        await signIn('google', { redirectTo: globalThis.callbackUrl ?? '/dashboard' })
     } catch (error) {
         console.log(error);
         throw error
@@ -77,7 +77,7 @@ export async function loginGoogle() {
 // LOGIN github
 export async function loginGithub() {
     try {
-        await signIn('github', { redirectTo: globalThis.callbackUrl })
+        await signIn('github', { redirectTo: globalThis.callbackUrl ?? '/dashboard' })
     } catch (error) {
         console.log(error);
         throw error
