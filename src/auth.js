@@ -13,6 +13,14 @@ export const options = {
         signOut: '/auth/logout',
         error: '/auth/error'
     },
+    events: {
+        async linkAccount({ user }) {
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { emailVerified: new Date() }
+            })
+        }
+    },
     callbacks: {
         async session({ session, token }) {
             // console.log(session, user);
