@@ -85,6 +85,17 @@ export async function loginGithub() {
 }
 
 
+// LOGIN discord
+export async function loginDiscord() {
+    try {
+        await signIn('discord', { redirectTo: globalThis.callbackUrl })
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
+
+
 // LOGOUT
 export async function logout() {
     try {

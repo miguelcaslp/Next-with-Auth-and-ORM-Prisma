@@ -11,13 +11,13 @@ export default async function Home() {
         <hr></hr>
         <li><Link href="/articulos">Listado de artículos</Link></li>
         <li><Link href="/articulos/new">Nuevo artículo</Link></li>
-        <li><Link href="/articulos/edit">Editar artículo</Link></li>
-        <li><Link href="/articulos/delete">Eliminar artículo</Link></li>
+        <li>Editar artículo</li>
+        <li>Eliminar artículo</li>
         <hr></hr>
         <li><Link href="/proveedores">Listado de proveedores</Link></li>
         <li><Link href="/proveedores/new">Nuevo proveedor</Link></li>
-        <li><Link href="/proveedores/edit">Editar proveedor</Link></li>
-        <li><Link href="/proveedores/delete">Eliminar proveedor</Link></li>
+        <li>Editar proveedor</li>
+        <li>Eliminar proveedor</li>
       </ul>
 
     </main>
