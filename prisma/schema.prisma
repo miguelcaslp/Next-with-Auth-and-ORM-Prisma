@@ -5,15 +5,15 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-}
+//datasource db {
+//  provider  = "postgresql"
+//  url  	    = env("DATABASE_URL")
+//}
 
-// datasource db {
-//   provider  = "mysql"
-//   url  	    = env("DATABASE_URL")
-// }
+datasource db {
+   provider  = "mysql"
+   url  	    = env("DATABASE_URL")
+}
 
 model User {
   id            String  @id @default(cuid())
@@ -44,3 +44,21 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+model Musico{
+  id       Int       @id @default(autoincrement())
+  nombre   String
+  fechaNacimiento DateTime?
+  canciones Cancion[]
+}
+
+model Cancion{
+  id              Int        @id @default(autoincrement())
+  nombre          String
+  duracion	      Int
+  musico          Musico  @relation(fields: [musicoId], references: [id])
+  musicoId        Int
+  @@map("canciones")
+}
+
+

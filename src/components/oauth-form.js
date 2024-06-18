@@ -13,9 +13,7 @@ function OAuthForm({error}) {
           <img src="/github.svg" alt="Github" /> Iniciar sesión con Github
         </button>
 
-        <button formAction={loginDiscord} className="social-button">
-          <img src="/discord.svg" alt="Discord" /> Iniciar sesión con Discord
-        </button>
+       
         { error }
       </form>
 

@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
 import { signIn, signOut } from '@/auth';
 import { getUserByEmail } from '@/lib/data';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 
 // REGISTER
@@ -85,16 +87,6 @@ export async function loginGithub() {
 }
 
 
-// LOGIN discord
-export async function loginDiscord() {
-    try {
-        await signIn('discord', { redirectTo: globalThis.callbackUrl })
-    } catch (error) {
-        console.log(error);
-        throw error
-    }
-}
-
 
 // LOGOUT
 export async function logout() {
@@ -104,3 +96,80 @@ export async function logout() {
         throw error
     }
 }
+
+
+//get model
+
+export async function getMusicos() {
+    try {
+        const musicos = await prisma.Musico.findMany()
+        return musicos;
+    } catch (error) {
+        return null;
+    }
+}
+
+export async function getCanciones() {
+    try {
+        const canciones = await prisma.Cancion.findMany()
+        return canciones;
+    } catch (error) {
+        return null;
+    }
+}
+
+
+
+export async function editMusico(formData) {
+    const id = Number(formData.get('id'))
+    const nombre = formData.get('nombre')
+    const fechaNacimiento = new Date(formData.get('fechaNacimiento')).toISOString()
+
+    try {
+        const musico = await prisma.Musico.update({
+            where: { id },
+            data: { nombre, fechaNacimiento },
+        })
+        console.log(musico);
+        revalidatePath('/musicos')
+    } catch (error) {
+        console.log(error);
+    }
+    redirect('/musicos');
+}
+
+
+export async function deleteMusico(formData) {
+    try {
+      const id = Number( formData.get('id') )
+    
+      const musico = await prisma.Musico.delete({
+        where: {
+          id: id,
+        },
+      })
+      console.log(musico);
+      revalidatePath('/musicos')
+    } catch (error) {
+      console.log(error);
+    }
+  
+    redirect('/musicos');
+  }
+
+  export async function newMusico(formData) {
+    try {
+      const nombre = formData.get('nombre')
+      const fechaNacimiento = new Date(formData.get('fechaNacimiento')).toISOString()
+  
+      const musico = await prisma.Musico.create({
+        data: { nombre, fechaNacimiento  },
+      })
+  
+      console.log(musico);
+      revalidatePath('/musicos')
+    } catch (error) {
+      console.log(error);
+    }
+    redirect('/musicos');
+  }

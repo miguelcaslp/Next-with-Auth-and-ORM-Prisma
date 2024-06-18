@@ -27,10 +27,7 @@ export const config = {
     matcher: [
         "/dashboard(.*)",
         "/admin(.*)",
-        "/proveedores(.*)",
-        "/articulos",
-        "/articulos/new",
-        "/articulos/edit",
-        "/articulos/delete",
+        "/canciones(.*)",
+        "/musicos(.*)"
     ],
 };

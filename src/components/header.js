@@ -9,12 +9,9 @@ async function Header() {
     return (
         <header>
             <div>
-                <Link href="/">Inicio</Link>
-                {session?.user?.role === 'ADMIN'
-                    ? <Link href="/admin">Admin panel</Link>
-                    : ''
-                }
                 <Link href="/dashboard">Dashboard</Link>
+                <Link href="/musicos">Musicos</Link>
+                <Link href="/canciones">Canciones</Link>
             </div>
             <nav>
                 {session
